@@ -1,0 +1,15 @@
+# Writeup
+- Introduction – Motivation
+- Problem definition
+- Description of your approaches: data analysis algorithms
+- Experiments/Conclusions
+
+## Introduction – Motivation
+Anime has become a global phenomenon, with countless genres and titles catering to diverse tastes. However, the sheer volume of available options makes it challenging for viewers to discover anime aligned with their preferences. A recommendation system tailored to anime fans can streamline this process, creating personalized viewing experiences while promoting lesser-known titles.
+
+## Problem Definition
+The goal is to develop an effective anime recommendation algorithm using the MyAnimeList dataset.
+This system should accurately predict user preferences based on historical data, such as ratings, genres, and user interactions.
+The challenges include handling sparse data, capturing diverse user preferences, and ensuring scalability to accommodate a growing dataset.
+
+
