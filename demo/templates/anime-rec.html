@@ -1,0 +1,58 @@
+{% if results %}
+    <div class="anime-selected">
+        <div>
+            <h3>
+                Reccomendations for 
+                <a href="https://myanimelist.net/anime/{{ anime['anime_id'] }}">{{ anime['title'] }}</a> 
+            </h3>
+            {% with anime=anime %}
+                {% include './anime-info.html'  %}
+            {% endwith %}
+        </div>
+        <img class="responsive" src="{{ anime['image_url'] }}"> </img>
+    </div>
+    <section class="slider-wrapper">
+     <ul class="slides-container" id="slides-container">
+          <button class="slide-arrow" id="slide-arrow-prev">
+            &#8249;
+          </button>
+          <button class="slide-arrow" id="slide-arrow-next">
+            &#8250;
+          </button>
+        {% for i,rec in results|reverse %}
+            <li class="slide">
+                <div>
+                    <h3><a href="https://myanimelist.net/anime/{{ rec['anime_id'] }}">{{ rec['title'] }}</a></h3>
+                    {% with anime=rec%}
+                        {% include './anime-info.html'  %}
+                    {% endwith %}
+                    <button hx-post="/rec/{{ i }}" hx-target="#reccomendations">Find Reccomendations</button>
+                </div>
+                <img class="responsive" src={{ rec['image_url'] }}> </img>
+            </li>
+        {% endfor %}
+     </ul>
+    <script>
+        try {
+            const slidesContainer = document.getElementById("slides-container");
+            const slide = document.querySelector(".slide");
+            const prevButton = document.getElementById("slide-arrow-prev");
+            const nextButton = document.getElementById("slide-arrow-next");
+
+            nextButton.addEventListener("click", () => {
+              const slideWidth = slide.clientWidth;
+              slidesContainer.scrollLeft += slideWidth;
+            });
+
+            prevButton.addEventListener("click", () => {
+              const slideWidth = slide.clientWidth;
+              slidesContainer.scrollLeft -= slideWidth;
+            });
+
+        } catch(e) {}
+        
+    </script>
+    </section>
+{% else %}
+    <p>No results found.</p>
+{% endif %}

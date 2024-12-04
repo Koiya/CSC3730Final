@@ -1,0 +1,17 @@
+{% if results %}
+    <ul style="padding-left:0px;list-style-type: none;">
+        {% for i,result in results %}
+            <li class="search-result" 
+                style="padding-top:4px;border-bottom:solid black 1px;">
+            <div class="display:flex; justify-content:flex-end">
+                <span>{{ result['title'] }}</span>
+                <button hx-post="/rec/{{ i }}" 
+                        style="display:inherit; justify-self:end;"
+                        hx-target="#reccomendations">Reccomend</button>
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found.</p>
+{% endif %}

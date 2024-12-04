@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>Get Reccomendations</h1>
+    <div>
+        <input type="text" 
+               name="query" 
+               hx-post="/search-complete" 
+               autocomplete="off"
+               hx-trigger="input changed delay:500ms, search" 
+               hx-target="#results" 
+               placeholder="Type something..." 
+               required>
+        
+        <div id="results">
+            <!-- Results will load here -->
+        </div>
+    </div>
+</div>
+
+<div id="reccomendations">
+     
+</div>
+
+{% endblock %}
