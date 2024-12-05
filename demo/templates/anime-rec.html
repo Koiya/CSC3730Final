@@ -2,7 +2,7 @@
     <div class="anime-selected">
         <div>
             <h3>
-                Reccomendations for 
+                Recommendations for 
                 <a href="https://myanimelist.net/anime/{{ anime['anime_id'] }}">{{ anime['title'] }}</a> 
             </h3>
             {% with anime=anime %}
@@ -26,7 +26,7 @@
                     {% with anime=rec%}
                         {% include './anime-info.html'  %}
                     {% endwith %}
-                    <button hx-post="/rec/{{ i }}" hx-target="#reccomendations">Find Reccomendations</button>
+                    <button hx-post="/rec/{{ i }}" hx-target="#reccomendations">Find Recommendations</button>
                 </div>
                 <img class="responsive" src={{ rec['image_url'] }}> </img>
             </li>
